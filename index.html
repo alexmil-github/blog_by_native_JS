@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <style>
+         /* Скрываем элементы по умолчанию */
+         .hidden {
+            display: none;
+         }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <!-- Навигационное меню -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="openPage('indexPage')">My App</a>
+            <div class="navbar-nav">
+                <a class="nav-link active" id="indexLink" href="#" onclick="openPage('indexPage')">Главная</a>
+                <a class="nav-link hidden" id="registerLink" href="#" onclick="openPage('registerPage')">Регистрация</a>
+                <a class="nav-link hidden" id="loginLink" href="#" onclick="openPage('loginPage')">Войти</a>
+                <a class="nav-link hidden" id="profileLink" href="#" onclick="profile()">Профиль</a>
+                <a class="nav-link hidden" id = "logoutLink" href="#" onclick="logout()">Выйти</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Навигационное меню -->
+
+    <!-- Основное содержимое -->
+    <div class="container py-5">
+        <!-- Главная страница -->
+        <div id="indexPage">
+            <div class="row">
+                
+            </div>
+        </div>
+        <!-- Главная страница -->
+
+        <!-- Страница регистрации -->
+        <div id="registerPage">
+            <h1>Регистрация</h1>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Имя</label>
+                    <input type="text" class="form-control" id="registerName" placeholder="Введите имя">
+                </div>
+                <div class="form-group">
+                    <label for="registerLogin">Логин</label>
+                    <input type="text" class="form-control" id="registerLogin" placeholder="Введите логин">
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Пароль</label>
+                    <input type="password" class="form-control" id="registerPassword" placeholder="Введите пароль">
+                </div>
+                <button type="submit" class="btn btn-primary mt-2" onclick="register(event)">Зарегистрироваться</button>
+            </form>
+        </div>
+        <!-- Страница регистрации -->
+
+        <!-- Страница входа -->
+        <div id="loginPage">
+            <h1>Вход</h1>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginLogin">Логин</label>
+                    <input type="text" class="form-control" id="loginLogin" placeholder="Введите логин">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Пароль</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Введите пароль">
+                </div>
+                <button type="submit" class="btn btn-primary mt-2" onclick="login(event)">Войти</button>
+            </form>
+        </div>
+        <!-- Страница входа -->
+
+        <!-- Страница поста -->
+        <div id="postPage">
+           
+        </div>
+        <!-- / Страница поста -->
+
+        <!-- Создание поста -->
+        <div id ="createPostPage">
+            <h2 class="mb-4">Создание поста</h2>
+
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Название поста</label>
+                    <input id="postName" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Текст поста</label>
+                    <textarea id="postText" class="form-control" rows="10"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Изображение</label>
+                    <input id="postImage" type="file" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success mt-4" onclick="createPost(event)">Создать пост</button>
+            </form>
+        </div>
+        <!-- / Создание поста -->
+
+        <!-- Страница профиля -->
+        <div id="profilePage">
+            <h2 class="mb-4">Добро пожаловать, username!</h2>
+            <button type="button" class="btn btn-success" onclick="openPage('createPostPage')">Добавить пост</button>
+
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Название поста</th>
+                    <th>Дата создания</th>
+                    <th>Действия</th>
+                </tr>
+
+            </table>
+        </div>
+        <!-- Страница профиля -->
+    </div>
+    <!-- Основное содержимое -->
+
+    <!-- Уведомления -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+    </div>
+    <!-- / Уведомления -->
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+
+</html>
